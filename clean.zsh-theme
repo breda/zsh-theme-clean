@@ -10,17 +10,17 @@ precmd () {
   STATUS=$(command git status --porcelain 2> /dev/null | tail -n1)
 
   if [[ -n $STATUS ]]; then
-    local git_branch='%F{red}$vcs_info_msg_0_'
+    local git_branch='%F{red} $vcs_info_msg_0_'
   else
-    local git_branch='%F{green}$vcs_info_msg_0_'
+    local git_branch='%F{green} $vcs_info_msg_0_'
   fi
 
-  RPROMPT="${git_branch}"
+  RPROMPT="${git_branch} "
 
   if [ "$ZSH_CLEAN_PATH_STYLE" = "1" ]; then
-    PROMPT="%F{blue}%c%{$reset_color%} "
+    PROMPT="%F{white}%c%{$reset_color%} "
   else
-    PROMPT="%F{blue}%~%{$reset_color%} "
+    PROMPT="%F{white}%~%{$reset_color%} "
   fi
 }
 
